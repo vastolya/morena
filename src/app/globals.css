@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #edece8;
-  --paper-2: #e3e2dd;
-  --ink: #111111;
-  --muted: #6b6a66;
-  --line: rgb(17 17 17 / 0.14);
+  --paper: #f3ebdd; /* небелёный лён */
+  --paper-2: #e9dfcc;
+  --ink: #2b1a12;
+  --muted: #7d6a5a;
+  --red: #a3241c; /* кумач */
+  --green: #2f4a35;
+  --line: rgb(43 26 18 / 0.16);
 }
 
 @theme inline {
@@ -13,8 +15,11 @@
   --color-paper-2: var(--paper-2);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
+  --color-red: var(--red);
+  --color-green: var(--green);
   --color-line: var(--line);
-  --font-sans: var(--font-inter-tight);
+  --font-sans: var(--font-lora);
+  --font-display: var(--font-kurale);
   --font-serif: var(--font-cormorant);
 }
 
@@ -25,16 +30,16 @@ html {
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-lora), Georgia, serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--ink);
+  background: var(--red);
   color: var(--paper);
 }
 
-/* Thin vertical grid lines, as in the references */
+/* Thin vertical grid lines */
 .grid-lines {
   background-image: linear-gradient(to right, var(--line) 1px, transparent 1px);
   background-size: calc(100% / 6) 100%;
@@ -45,20 +50,17 @@ body {
   }
 }
 
-/* Monochrome photos that bloom into colour on hover (touch screens see colour) */
-.mono {
-  transition:
-    filter 0.7s ease,
-    transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+/* Embroidery-like band of rhombi, as on folk towels and sleeves */
+.ornament {
+  height: 18px;
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='18' viewBox='0 0 36 18'%3E%3Cg fill='%23a3241c'%3E%3Cpath d='M18 1 26 9 18 17 10 9Z'/%3E%3Cpath d='M0 7h4v4H0zM32 7h4v4h-4z'/%3E%3C/g%3E%3Cpath d='M18 6 21 9 18 12 15 9Z' fill='%23f3ebdd'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
 }
-@media (hover: hover) {
-  .mono {
-    filter: grayscale(1) contrast(1.05);
-  }
-  .group:hover .mono,
-  .mono:hover {
-    filter: grayscale(0) contrast(1);
-  }
+
+.photo {
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 @keyframes marquee {

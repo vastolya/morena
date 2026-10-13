@@ -80,16 +80,22 @@ async function WorkContent({ params }: { params: Promise<{ slug: string }> }) {
             >
               {categories[work.category]}
             </Link>
-            <h1 className="mt-3 text-[clamp(2.8rem,6.5vw,7rem)] leading-[0.9] font-medium tracking-[-0.05em]">
+            <h1 className="mt-3 font-display text-[clamp(2.6rem,5.5vw,6rem)] leading-[0.95]">
               {work.title}
             </h1>
             <p className="mt-8 max-w-md text-[16px] leading-relaxed text-ink/80">
               {work.description}
             </p>
 
-            <dl className="mt-10 grid max-w-md grid-cols-2 gap-y-3 border-t border-line pt-4 text-[13px]">
+            <dl className="mt-10 grid max-w-md grid-cols-2 gap-y-3 border-t border-line pt-4 text-[14px]">
               <dt className="text-muted">Материал</dt>
               <dd>{work.material}</dd>
+              {work.size && (
+                <>
+                  <dt className="text-muted">Размер</dt>
+                  <dd>{work.size}</dd>
+                </>
+              )}
               <dt className="text-muted">Исполнение</dt>
               <dd>Ручная работа</dd>
               <dt className="text-muted">Фотографий</dt>
@@ -98,7 +104,7 @@ async function WorkContent({ params }: { params: Promise<{ slug: string }> }) {
 
             <Link
               href="/#contacts"
-              className="mt-10 inline-flex items-center gap-3 bg-ink px-6 py-3 text-[13px] text-paper transition-opacity hover:opacity-80"
+              className="mt-10 inline-flex items-center gap-3 bg-red px-6 py-3 text-[14px] text-paper transition-opacity hover:opacity-80"
             >
               Заказать похожее <span aria-hidden>→</span>
             </Link>
@@ -108,9 +114,9 @@ async function WorkContent({ params }: { params: Promise<{ slug: string }> }) {
 
       {work.photos.length > 1 && (
         <section className="px-4 py-16 md:px-6 md:py-24">
-          <div className="mb-8 flex items-baseline justify-between border-b border-ink pb-3">
-            <h2 className="text-[clamp(1.6rem,3vw,2.5rem)] tracking-[-0.04em]">Детали</h2>
-            <span className="font-serif text-xl italic">{work.photos.length}</span>
+          <div className="mb-8 flex items-baseline justify-between border-b border-red pb-3">
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.5rem)]">Детали</h2>
+            <span className="font-serif text-xl text-red italic">{work.photos.length}</span>
           </div>
           <Gallery photos={work.photos} title={work.title} />
         </section>
@@ -127,11 +133,11 @@ async function WorkContent({ params }: { params: Promise<{ slug: string }> }) {
             className={`group flex items-center gap-4 px-4 py-6 md:px-6 ${k === 1 ? "flex-row-reverse border-l border-line text-right" : ""}`}
           >
             <span className="relative block h-24 w-16 shrink-0 overflow-hidden md:h-32 md:w-24">
-              <Image src={w.cover.src} alt="" fill sizes="96px" className="mono object-cover" />
+              <Image src={w.cover.src} alt="" fill sizes="96px" className="object-cover" />
             </span>
             <span>
               <span className="block text-[12px] text-muted">{label}</span>
-              <span className="mt-1 block text-[clamp(1.1rem,2.2vw,1.8rem)] leading-tight tracking-[-0.03em]">
+              <span className="mt-1 block text-[clamp(1.1rem,2.2vw,1.8rem)] leading-tight font-display">
                 {w.title}
               </span>
             </span>

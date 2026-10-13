@@ -3,18 +3,19 @@ import { site } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer id="contacts" className="grid-lines scroll-mt-16 border-t border-line">
+    <footer id="contacts" className="grid-lines scroll-mt-16">
+      <div className="ornament" aria-hidden />
       <div className="px-4 pt-20 pb-8 md:px-6 md:pt-32">
         <p className="text-[13px] text-muted">Индивидуальный пошив и готовые вещи</p>
-        <h2 className="mt-4 text-[clamp(3rem,13vw,13rem)] leading-[0.85] font-medium tracking-[-0.06em]">
+        <h2 className="mt-4 font-display text-[clamp(3rem,11vw,11rem)] leading-[0.9]">
           Напишите
           <br />
-          <span className="font-serif font-light italic tracking-[-0.03em]">Марине</span>
+          <span className="font-serif font-light text-red italic">Марине</span>
         </h2>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 text-[clamp(1.4rem,2.6vw,2.2rem)] tracking-[-0.03em] sm:grid-cols-2 md:mt-24 md:grid-cols-6">
+        <div className="mt-16 grid grid-cols-1 gap-8 text-[clamp(1.4rem,2.6vw,2.2rem)] font-display sm:grid-cols-2 md:mt-24 md:grid-cols-6">
           <div className="md:col-span-2">
-            <p className="text-[13px] tracking-normal text-muted">Telegram</p>
+            <p className="font-sans text-[13px] text-muted">Telegram</p>
             <a
               href={site.telegram}
               target="_blank"
@@ -25,7 +26,7 @@ export function SiteFooter() {
             </a>
           </div>
           <div className="md:col-span-2">
-            <p className="text-[13px] tracking-normal text-muted">Телефон</p>
+            <p className="font-sans text-[13px] text-muted">Телефон</p>
             <a href={`tel:${site.phone}`} className="mt-1 block hover:underline">
               {site.phoneLabel}
             </a>

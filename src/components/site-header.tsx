@@ -12,7 +12,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
       <div className="grid grid-cols-3 items-center px-4 py-4 text-[13px] md:grid-cols-6 md:px-6">
         <Link href="/" className="leading-tight">
-          <span className="block font-medium tracking-tight">Марина Баязова</span>
+          <span className="block font-display text-[16px]">Марина Баязова</span>
           <span className="font-serif text-[15px] italic text-muted">ручная работа</span>
         </Link>
         {nav.map((item) => (
@@ -34,7 +34,7 @@ export function SiteHeader() {
           href="/#contacts"
           className="hidden justify-self-end md:flex md:items-center md:gap-2"
         >
-          <span className="size-1.5 bg-ink" aria-hidden />
+          <span className="size-1.5 rotate-45 bg-red" aria-hidden />
           Заказать
         </Link>
       </div>
